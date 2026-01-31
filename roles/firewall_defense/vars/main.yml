@@ -1,0 +1,6 @@
+---
+allowed_ports:
+  - 22
+  - 80
+panic_mode: true
+# vars file for roles/firewall_defense
