@@ -1,0 +1,21 @@
+--- 
+- name: Install Ufw
+  apt:
+    name: ufw
+    state: present
+
+- name: Deny
+  ufw:
+    direction: incoming
+    policy: deny 
+
+- name: Limiting
+  ufw: 
+    rule: limit 
+    port: "{{ item }}"
+    proto: tcp
+  loop: "{{allowed_ports }}"
+
+- name: Enable Ufw
+  ufw:
+    state: enabled 
